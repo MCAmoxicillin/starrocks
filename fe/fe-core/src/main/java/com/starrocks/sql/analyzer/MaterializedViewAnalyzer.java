@@ -37,8 +37,6 @@ import com.starrocks.catalog.Column;
 import com.starrocks.catalog.Database;
 import com.starrocks.catalog.FunctionSet;
 import com.starrocks.catalog.HiveMetaStoreTable;
-import com.starrocks.catalog.HiveTable;
-import com.starrocks.catalog.HudiTable;
 import com.starrocks.catalog.IcebergTable;
 import com.starrocks.catalog.Index;
 import com.starrocks.catalog.InternalCatalog;
@@ -125,6 +123,11 @@ public class MaterializedViewAnalyzer {
                     Table.TableType.ICEBERG,
                     Table.TableType.JDBC,
                     Table.TableType.MYSQL,
+<<<<<<< HEAD
+=======
+                    Table.TableType.PAIMON,
+                    Table.TableType.DELTALAKE,
+>>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
                     Table.TableType.VIEW);
 
     public static void analyze(StatementBase stmt, ConnectContext session) {
@@ -179,6 +182,7 @@ public class MaterializedViewAnalyzer {
             return false;
         } else if (table instanceof JDBCTable || table instanceof MysqlTable) {
             return false;
+<<<<<<< HEAD
         } else if (table instanceof HiveTable || table instanceof HudiTable) {
             HiveMetaStoreTable hiveMetaStoreTable = (HiveMetaStoreTable) table;
             String catalogName = hiveMetaStoreTable.getCatalogName();
@@ -189,7 +193,11 @@ public class MaterializedViewAnalyzer {
             return Strings.isBlank(catalogName) || isResourceMappingCatalog(catalogName);
         } else {
             return true;
+=======
+>>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
         }
+        String catalog = table.getCatalogName();
+        return Strings.isBlank(catalog) || isResourceMappingCatalog(catalog);
     }
 
     private static void processViews(QueryStatement queryStatement, Set<BaseTableInfo> baseTableInfos,

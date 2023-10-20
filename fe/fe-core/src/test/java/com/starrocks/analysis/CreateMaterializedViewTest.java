@@ -3988,6 +3988,7 @@ public class CreateMaterializedViewTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void testCreateMvWithUnsupportedStr2date() {
         {
             String sql = "create materialized view mv1 " +
@@ -4014,5 +4015,11 @@ public class CreateMaterializedViewTest {
             Assert.assertThrows("Materialized view partition function date_trunc check failed",
                     AnalysisException.class, () -> starRocksAssert.useDatabase("test").withMaterializedView(sql));
         }
+=======
+    public void createDeltaLakeMV() throws Exception {
+        starRocksAssert.withMaterializedView("create materialized view mv_deltalake " +
+                " refresh manual" +
+                " as select * from deltalake_catalog.deltalake_db.tbl");
+>>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
     }
 }
