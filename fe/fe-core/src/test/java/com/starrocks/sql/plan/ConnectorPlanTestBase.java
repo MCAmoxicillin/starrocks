@@ -33,8 +33,6 @@ import com.starrocks.connector.jdbc.MockedJDBCMetadata;
 import com.starrocks.qe.ConnectContext;
 import com.starrocks.server.CatalogMgr;
 import com.starrocks.server.GlobalStateMgr;
-<<<<<<< HEAD
-=======
 import io.delta.standalone.DeltaLog;
 import org.apache.commons.collections4.map.CaseInsensitiveMap;
 import org.apache.paimon.catalog.Catalog;
@@ -51,16 +49,12 @@ import org.apache.paimon.table.sink.BatchTableCommit;
 import org.apache.paimon.table.sink.BatchTableWrite;
 import org.apache.paimon.types.DataField;
 import org.apache.paimon.types.DataTypes;
->>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
 import org.junit.BeforeClass;
 
-<<<<<<< HEAD
-=======
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
->>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
 import java.util.Map;
 
 public class ConnectorPlanTestBase extends PlanTestBase {
@@ -104,8 +98,6 @@ public class ConnectorPlanTestBase extends PlanTestBase {
         metadataMgr.registerMockedMetadata(MockedHiveMetadata.MOCKED_HIVE_CATALOG_NAME, mockedHiveMetadata);
     }
 
-<<<<<<< HEAD
-=======
     public static void createPaimonTable(Catalog catalog, String db) throws Exception {
         catalog.createDatabase(db, false);
 
@@ -253,7 +245,6 @@ public class ConnectorPlanTestBase extends PlanTestBase {
         metadataMgr.registerMockedMetadata(catalogName, metadata);
     }
 
->>>>>>> 5411b652cf ([Enhancement] support mv on deltalake table (#32282))
     private static void mockJDBCCatalogImpl(MockedMetadataMgr metadataMgr) throws DdlException {
         Map<String, String> properties = Maps.newHashMap();
 
